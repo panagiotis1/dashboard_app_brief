@@ -39,7 +39,9 @@ export default function TableData() {
                             })
                             .map((item, i) => (
                             <tr className='box' style={{backgroundColor:item.color}} key={i}>
-                                <td className='colorCode' style={{color:item.color}}>{item.color}</td>
+                                <div className='colorCodePosition'>
+                                    <td className='colorCode' style={{color:item.color}}>{item.color}</td>
+                                </div>
                                 <div className='nameYear'>
                                     <td className='colorName'>{item.name}</td>
                                     <td className='colorYear'>{item.year}</td>
