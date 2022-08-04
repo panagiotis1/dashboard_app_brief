@@ -32,16 +32,17 @@ export default function Users() {
     }, [items])
     
     function checkBoxHandler(id) {
-        setItems(state => state.map(x => {
-            return x.id === id ? { ...x, isChecked: !x.isChecked } : x
+        setItems((state) =>{
+            return state.map(x => {
+                    return x.id === id ? { ...x, isChecked: !x.isChecked } : x
+                })
         })
-        )
     }
-
+    
     const rowDelete = () => {
-        sessionStorage.getItem(setItems(state=>{
-            return state.filter(x=>!x.isChecked)
-            }))
+        setItems(state => state.filter((x) => {
+            return !(x.isChecked && window.confirm("Do you really want to delete user "+x.id+"?"));
+        }))
     }
 
     return (
@@ -52,7 +53,7 @@ export default function Users() {
                     <button
                         className='buttonClass'
                         disabled={!items.find(x => x.isChecked)}
-                        onClick={() => rowDelete()}
+                        onClick={()=>rowDelete()}
                     >DELETE</button>
                     <table>
                         <thead>
