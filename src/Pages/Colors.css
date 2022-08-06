@@ -31,6 +31,8 @@
   background-color: black;
   filter: opacity(50%);
   margin-top: -6px;
+  display: flex;
+  justify-content: space-between;
 }
 
 .nameYear:hover{

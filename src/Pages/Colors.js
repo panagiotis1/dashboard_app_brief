@@ -34,17 +34,15 @@ export default function TableData() {
                     </div>
                     <tbody>
                         {items.data
-                            .sort((a, b) => {
-                                if (a.year !== b.year) return b.year - a.year;
-                            })
+                            .sort((a, b) => { return b.year - a.year; })
                             .map((item, i) => (
                             <tr className='box' style={{backgroundColor:item.color}} key={i}>
                                 <div className='colorCodePosition'>
                                     <td className='colorCode' style={{color:item.color}}>{item.color}</td>
                                 </div>
                                 <div className='nameYear'>
-                                    <td className='colorName'>{item.name}</td>
-                                    <td className='colorYear'>{item.year}</td>
+                                    <td>{item.name}</td>
+                                    <td>{item.year}</td>
                                 </div>
                             </tr>
                         ))}
